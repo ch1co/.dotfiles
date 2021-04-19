@@ -6,8 +6,8 @@
   new_tab = <Super>Return
   close_term = <Super>c
   close_window = None
-  next_tab = <Alt>Tab
-  prev_tab = <Alt>grave
+  next_tab = <Primary>Tab
+  prev_tab = <Primary>grave
   new_terminator = None
 [profiles]
   [[default]]
