@@ -1,18 +1,17 @@
-set nocompatible 
-set shortmess+=I 
-set number 
-set relativenumber 
-set laststatus=2 
-set backspace=indent,eol,start
-
-set hidden
-set ignorecase
-set backspace=indent,eol,start
-
+syntax on
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~~/.vim/undodir
+set undofile
 set incsearch
-
-set noerrorbells visualbell t_vb=
-set mouse+=a
 
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -25,7 +24,5 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 
-
-syntax enable
 packadd! dracula
 colorscheme dracula
