@@ -202,6 +202,8 @@ bindsym Mod1+Ctrl+Left workspace prev
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
+# Automatic focus on new window 
+for_window [class=".*"]    focus
 
 
 
@@ -296,7 +298,8 @@ for_window [class="qBittorrent"] move to workspace 6
 #####################################################################################################################
 
 # USER APPLICATIONS TO START AT BOOT
-
+#keyboard layout
+bindsym $mod+space exec /home/ch1co/.config/i3/i3status//i3-keyboard-layout.sh cycle us il
 # ArcoLinux Welcome App
 exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
