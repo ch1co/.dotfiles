@@ -60,22 +60,22 @@ myip_public() {
   echo -n "},"
 }
 
-myvpn_on() {
-  local bg="#424242" # grey darken-3
-  local icon=""
-  if [ -d /proc/sys/net/ipv4/conf/proton0 ]; then
-    bg="#E53935" # rouge
-    icon=""
-  fi
-  separator $bg "#1976D2" # background left previous block
-  bg_separator_previous=$bg
-  echo -n ",{"
-  echo -n "\"name\":\"id_vpn\","      
-  echo -n "\"full_text\":\" ${icon} VPN \","
-  echo -n "\"background\":\"$bg\","
-  common
-  echo -n "},"
-}
+#myvpn_on() {
+#  local bg="#424242" # grey darken-3
+  #local icon=""
+  #if [ -d /proc/sys/net/ipv4/conf/proton0 ]; then
+  #  bg="#E53935" # rouge
+  #  icon=""
+  #fi
+  #separator $bg "#1976D2" # background left previous block
+  #bg_separator_previous=$bg
+  #echo -n ",{"
+  #echo -n "\"name\":\"id_vpn\","      
+  #echo -n "\"full_text\":\" ${icon} VPN \","
+  #echo -n "\"background\":\"$bg\","
+  #common
+  #echo -n "},"
+#}
 
 myip_local() {
   local bg="#2E7D32" # vert
@@ -208,7 +208,6 @@ do
 	echo -n ",["
   mycrypto
   myip_public
-  myvpn_on
   myip_local
   disk_usage
   memory
@@ -230,11 +229,11 @@ do
   # {"name":"id_vpn","button":1,"modifiers":["Mod2"],"x":2982,"y":9,"relative_x":67,"relative_y":9,"width":95,"height":22}
 
   # VPN click
-  if [[ $line == *"name"*"id_vpn"* ]]; then
-    termite -e /home/ch1co/.config/i3/i3status/click_vpn.sh &
+ # if [[ $line == *"name"*"id_vpn"* ]]; then
+ #   termite -e /home/ch1co/.config/i3/i3status/click_vpn.sh &
 
   # CHECK UPDATES
-  elif [[ $line == *"name"*"id_systemupdate"* ]]; then
+  if [[ $line == *"name"*"id_systemupdate"* ]]; then
     termite -e /home/ch1co/.config/i3/i3status/click_checkupdates.sh &
 
   # CPU

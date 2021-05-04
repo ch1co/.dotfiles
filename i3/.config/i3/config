@@ -270,7 +270,7 @@ font pango:Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1
-
+for_window [class="Termite"] move to workspace 1
 # Workspace 2 Programming related 
 
 
@@ -371,12 +371,11 @@ bindsym --release $mod+Escape exec xkill
 #firefox
 bindsym $mod+F2 exec --no-startup-id firefox;focus
 
-#eclipse
-bindsym $mod+F4 exec --no-startup-id termite -e cd /home/ch1co/Documents/Software/eclipse/java-2021-03/eclipse && ./eclipse
-
 #ranger
 bindsym $mod+F3 exec --no-startup-id termite -e ranger & cd ~/Documents/Cheat-Sheets/Linux
 
+#eclipse
+bindsym $mod+F4 exec --no-startup-id termite -e cd /home/ch1co/Documents/Software/eclipse/java-2021-03/eclipse && termite -e ./eclipse
 
 
 
