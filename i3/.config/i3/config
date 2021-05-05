@@ -23,17 +23,12 @@
 #################                          Define the $mod variable/key                             #################
 #####################################################################################################################
 
-# Key to rule them all : Super(Windows) or Alt key?
+# Key to rule them all : Super(Windows) 
 
 # Mod4 = Windows or Super key on keyboard
 # Mod1 = Alt key on keyboard
 
-#Set Alt key
-
-#set Super key
-set $mod Mod4
-
-
+set         $mod                Mod4
 
 #####################################################################################################################
 #################                          Define the movements keys - variables                    #################
@@ -41,41 +36,39 @@ set $mod Mod4
 
 
 #This is setup for qwerty
-set $up l
-set $down k
-set $left j
-set $right semicolon
-
-#This is setup for azerty
-#set $up l
-#set $down k
-#set $left j
-#set $right m
-
-
+set         $up                 k
+set         $down               j
+set         $left               h
+set         $right              l 
 
 #####################################################################################################################
-#################                          Single and Dual screen                                   #################
+#################                          Dual screen                                              #################
 #####################################################################################################################
-
-
-
-exec --no-startup-id xrandr --output DP-0 --primary --mode 2560x1440 --rate 144 --right-of DVI-I-1
-
 
 # my current setup
 
-set $firstMonitor DP-0 
-set $secondMonitor DVI-I-1
+set         $firstMonitor       DP-0 
+set         $secondMonitor      DVI-I-1
 
+set         $ws1                workspace1
+set         $ws2                workspace2
+set         $ws3                workspace3
+set         $ws4                workspace4
+set         $ws5                workspace5
+set         $ws6                workspace6
+set         $ws7                workspace7
+set         $ws8                workspace8
+set         $ws9                workspace9
 
+# Assign the side of each screen
+exec --no-startup-id xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --right-of $secondMonitor 
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $secondMonitor
-workspace 5 output $secondMonitor
-workspace 6 output $secondMonitor
+workspace 1     output          $firstMonitor
+workspace 2     output          $firstMonitor
+workspace 3     output          $firstMonitor
+workspace 4     output          $secondMonitor
+workspace 5     output          $secondMonitor
+workspace 6     output          $secondMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -92,9 +85,6 @@ bindsym $mod+Shift+3 move container to workspace 3; workspace 3
 bindsym $mod+Shift+4 move container to workspace 4; workspace 4
 bindsym $mod+Shift+5 move container to workspace 5; workspace 5
 bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-
-# start rofi 
-bindsym Mod1+Tab exec --no-startup-id rofi -show run -font "Noto Sans 13"
 
 
 #####################################################################################################################
@@ -134,17 +124,6 @@ bindsym $mod+Shift+r restart
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
-
-#####################################################################################################################
-#################                          Stopping an application                                  #################
-#####################################################################################################################
-
-# kill focused window
-bindsym $mod+Shift+q kill
-bindsym $mod+q kill
-
-
 
 #####################################################################################################################
 #################                          Moving around in i3                                      #################
@@ -199,14 +178,6 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym Mod1+Ctrl+Right workspace next
 bindsym Mod1+Ctrl+Left workspace prev
 
-# switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
-
-# Automatic focus on new window 
-for_window [class=".*"]    focus
-
-
-
 
 #####################################################################################################################
 #################                          Tiling parameters                                        #################
@@ -216,7 +187,7 @@ for_window [class=".*"]    focus
 default_orientation horizontal
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -225,29 +196,16 @@ bindsym $mod+v split v
 # Super + F in arcolinux is execute thunar
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-# qwerty/azerty issue for letter z
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
-
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
 
 #####################################################################################################################
 #################                          resize                                                   #################
 #####################################################################################################################
 
-# Resizing by 1
-bindsym $mod+Mod1+Ctrl+Right resize shrink width 1 px or 1 ppt
-bindsym $mod+Mod1+Ctrl+Up resize grow height 1 px or 1 ppt
-bindsym $mod+Mod1+Ctrl+Down resize shrink height 1 px or 1 ppt
-bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
+
+bindsym $mod+Shift+y        resize shrink width  10px or 10 ppt
+bindsym $mod+Shift+u        resize shrink height 10px or 10 ppt
+bindsym $mod+Shift+i        resize grow height   10px or 10 ppt
+bindsym $mod+Shift+o        resize grow width    10px or 10 ppt
 
 #####################################################################################################################
 #################                          choose the font                                          #################
@@ -258,10 +216,6 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 # choose your font
 font pango:Noto Mono Regular 13
 
-
-
-
-
 #####################################################################################################################
 #################                          assign applications to workspaces                       #################
 #####################################################################################################################
@@ -270,25 +224,22 @@ font pango:Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1
-for_window [class="Termite"] move to workspace 1
+for_window                  [class="Termite"]       move to workspace 1
+
 # Workspace 2 Programming related 
+for_window                  [class="Eclipse"]       move to workspace 2
+for_window                  [class="Code"]          move to workspace 2
 
-
-for_window [class="Eclipse"] move to workspace 2
-for_window [class="Code"]    move to workspace 2
 # Workspace 3                                        
-
-
 # Workspace 4
+for_window                  [class="firefox"]       move to workspace 4
+for_window                  [class="Discord"]       move to workspace 4
 
-for_window [class="firefox"] move to workspace 4
-for_window [class="Discord"] move to workspace 4
 #workspace 5 Music related 
-for_window [class="Audacious"] move to workspace 5
-
+for_window                  [class="Audacious"]     move to workspace 5
 
 # Workspace 6 Torrent related 
-for_window [class="qBittorrent"] move to workspace 6
+for_window                  [class="qBittorrent"]   move to workspace 6
 
 
 
@@ -354,8 +305,8 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #conky
 bindsym $mod+c exec --no-startup-id conky-toggle
-bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
-bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
+bindsym control+Mod1+Next exec --no-startup-id conky-rotate -n
+bindsym control+Mod1+Prior exec --no-startup-id conky-rotate -p
 
 # terminal
 bindsym $mod+Return exec --no-startup-id termite;focus
@@ -368,6 +319,9 @@ bindsym control+mod1+p exec --no-startup-id pamac-manager
 #xkill
 bindsym --release $mod+Escape exec xkill
 
+# start rofi 
+bindsym Mod1+Tab exec --no-startup-id rofi -show run -font "Noto Sans 13"
+
 #firefox
 bindsym $mod+F2 exec --no-startup-id firefox;focus
 
@@ -377,7 +331,13 @@ bindsym $mod+F3 exec --no-startup-id termite -e ranger & cd ~/Documents/Cheat-Sh
 #eclipse
 bindsym $mod+F4 exec --no-startup-id termite -e cd /home/ch1co/Documents/Software/eclipse/java-2021-03/eclipse && termite -e ./eclipse
 
+#####################################################################################################################
+#################                          Stopping an application                                  #################
+#####################################################################################################################
 
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 #####################################################################################################################
 #################                          screenshots                                              #################
@@ -434,43 +394,29 @@ for_window [window_role="setup"]                 floating enable
 for_window [instance="script-fu"]                border normal
 
 
-
-
-
-
-
 #####################################################################################################################
 #################                          give focus to applications                               #################
 #####################################################################################################################
 
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
 
-for_window [class="Termite"] focus
-for_window [class="Firefox"] focus
-
-
-
-
+# Automatic focus on new window 
+for_window [class=".*"]    focus
 
 #####################################################################################################################
 #################                          variety for your wallpapers                              #################
 #####################################################################################################################
-
 ########################################### FIX FROM HERE ###########################################################
 #Variety keybindings mod1 = ALT
 # trash wallpaper
-bindsym mod1+t exec --no-startup-id variety -t
+# bindsym           mod1+t          exec --no-startup-id variety -t
 # next wallpaper
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
+bindsym             mod1+n          exec --no-startup-id variety -n
+bindsym             mod1+Right      exec --no-startup-id variety -n
 # previous wallpaper
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
-# favorite wallpaper
-bindsym mod1+f exec --no-startup-id variety -f
-# pause wallpaper
-bindsym mod1+Up exec --no-startup-id variety --pause
-# resume wallpaper
-bindsym mod1+Down exec --no-startup-id variety --resume
+bindsym             mod1+p          exec --no-startup-id variety -p
+bindsym             mod1+Left       exec --no-startup-id variety -p
 
 
 #####################################################################################################################
@@ -478,13 +424,13 @@ bindsym mod1+Down exec --no-startup-id variety --resume
 #####################################################################################################################
 
 # next wallpaper
-bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+#bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # previous wallpaper
-bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+#bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # trash wallpaper
-bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+#bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # Update Wallpaper
-bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
+#bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
 
 
 #####################################################################################################################
@@ -521,21 +467,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 
 # bar toggle, hide or show
-bindsym $mod+b bar mode toggle
-
-
-#####################################################################################################################
-#################                          border control                                           #################
-#####################################################################################################################
-
-#new_window pixel 1
-new_window normal
-#new_window none
-
-#new_float pixel 1
-new_float normal
-#new_float none
-
+# bindsym $mod+b bar mode toggle
 
 
 
@@ -572,8 +504,6 @@ gaps outer 10
 #####################################################################################################################
 #################                          i3 gaps change                                           #################
 #####################################################################################################################
-
-
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
