@@ -130,7 +130,7 @@ alias cpuinfo='lscpu'
 alias ports='sudo netstat -tulanp'
 
 # Program launch aliases
-alias v='vim || sudo vim'
+alias v='vim' 
 
 #Cleanup orphaned packages
 
