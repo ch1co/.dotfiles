@@ -81,4 +81,3 @@ alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 
 
-alias t="echo 'test'"
