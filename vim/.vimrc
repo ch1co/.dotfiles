@@ -8,7 +8,6 @@ set nu
 set relativenumber
 set nohlsearch
 set hidden
-set termguicolors
 set scrolloff=8
 set nowrap
 set noswapfile
