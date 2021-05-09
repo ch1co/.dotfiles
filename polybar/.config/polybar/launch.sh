@@ -13,21 +13,21 @@ killall -q polybar
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 
-# Terminate already running bar instances
-killall -q polybar
 
-# Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+PRIMARY_BAR_NAME=mainbar-i3
+SECONDARY_BAR_NAME=mainbar-i3-extra
+BAR_CONFIG=/home/$USER/.config/polybar/config
 
-# Launch polybars for every connected monitor
-if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar -c /home/ch1co/.config/polybar/config mainbar-i3 &
-#    MONITOR=$m polybar -c /home/ch1co/.config/polybar/config mainbar-i3 &
-  done
-else
-  polybar -c /home/ch1co/.config/polybar/config mainbar-i3 &
-#  polybar -c /home/ch1co/.config/polybar/config mainbar-i3 &
-fi
+PRIMARY=$(xrandr --query | grep " connected" | grep "primary" | cut -d" " -f1)
+OTHERS=$(xrandr --query | grep " connected" | grep -v "primary" | cut -d" " -f1)
+
+# Launch on primary monitor
+MONITOR=$PRIMARY polybar --reload -c $BAR_CONFIG $PRIMARY_BAR_NAME &
+sleep 1
+
+# Launch on all other monitors
+for m in $OTHERS; do
+     MONITOR=$m polybar --reload -c $BAR_CONFIG $SECONDARY_BAR_NAME &
+     done
 
 echo "Bars launched..."
