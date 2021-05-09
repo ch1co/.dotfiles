@@ -4,38 +4,43 @@ alias zshconfig="vim ~/.dotfiles/zsh/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-alias cc='clear'
 # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 
-
+# Memory information
 alias meminfo='free -m -l -t'
  
-## get top process eating memory
+# get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
  
-## get top process eating cpu ##
+# get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
  
-## Get server cpu info ##
+# Get server cpu info ##
 alias cpuinfo='lscpu'
 
-## Show open ports
+# Show open ports
 alias ports='sudo netstat -tulanp'
 
-# Program launch aliases
+# Vim 
 alias v='vim' 
 
-#Cleanup orphaned packages
+# Change cat to less
+alias cat='less'
 
+# Replace htop with bpytop (installation required)
+# https://pypi.org/project/bpytop/
+alias htop='bpytop'
+
+#Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
-# # ex = EXtractor for all kinds of archives
-# # usage: ex <file>
+# ex = EXtractor for all kinds of archives
+# usage: ex <file>
 ex ()
 {
   if [ -f $1 ] ; then
@@ -78,6 +83,22 @@ alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
+#readable output
+alias df='df -h'
+#free
+alias free="free -mt"
+#add new fonts
+alias update-fc='sudo fc-cache -fv'
 
+#youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 
-
+#Google
+alias google='firefox --search '
