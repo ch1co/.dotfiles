@@ -65,7 +65,7 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
+alias studio="./.cache/yay/android-studio/android-studio/bin/studio.sh"
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 

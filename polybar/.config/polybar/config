@@ -119,9 +119,9 @@ font-1 = "FontAwesome:size=11;0"
 font-2 = "Noto Sans:size=11;0"
 font-3 = "Noto Sans Mono:size=11;0"
 
-modules-left = i3 
-modules-center = date pub-ip
-modules-right = memory2 cpu2 xkeyboard 
+modules-left = i3 temperature1 temperature2
+modules-center = date 
+modules-right = memory3 cpu1 xkeyboard 
 
 
 separator = |
@@ -218,7 +218,7 @@ font-3 = "Noto Sans Mono:size=11;0"
 
 modules-left = i3
 
-modules-center = date
+modules-center = 
 modules-right = filesystem networkspeeddown networkspeedup
 
 separator = |
@@ -388,6 +388,13 @@ format-background = ${colors.background}
 ############                       MODULES A-Z                      ############
 ################################################################################
 ################################################################################
+
+
+[module/crypto]
+type = custom/script
+interval = 300
+exec = /home/ch1co/.config/polybar/crypto.py
+font-0 = cryptocoins:style=Regular;0
 
 [module/arch-updates]
 type = custom/script

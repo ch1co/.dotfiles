@@ -208,7 +208,7 @@ font pango:             Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1
-for_window              [class="Termite"]   move to workspace 1
+for_window              [class="Alacritty"]   move to workspace 1
 
 # Workspace 2 
 for_window              [class="Eclipse"]   move to workspace 2
@@ -237,7 +237,8 @@ for_window              [class="qBittorrent"]   move to workspace 6
 exec                    --no-startup-id    timeshift &
 # qBitTorrent
 exec                    --no-startup-id    qbittorrent ; workspace $ws4
-
+# Xcompmgr
+exec                    --no-startup-id    xcompmgr -c &
 # Eclipse
 exec                    --no-startup-id     /home/ch1co/Documents/scripts/eclipse.sh
 
@@ -246,7 +247,7 @@ exec                    --no-startup-id     /home/ch1co/Documents/scripts/eclips
 
 # Autotiling
 exec_always             --no-startup-id     autotiling
-
+exec                    --no-startup-id     nitrogen --restore & 
 # TRAY APPLICATIONS
 
 # applications that are not installed will not start
@@ -271,7 +272,7 @@ exec_always             --no-startup-id     numlockx on
 exec                    --no-startup-id     volumeicon
 
 #variety
-exec                    --no-startup-id     variety
+#exec                    --no-startup-id     variety
 
 #Conky
 # exec                    --no-startup-id     conky -c ~/.config/i3/system-overview
