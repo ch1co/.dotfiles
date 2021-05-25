@@ -65,7 +65,11 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+# Calculator
+alias calc="galculator"
+# Android Studio
 alias studio="./.cache/yay/android-studio/android-studio/bin/studio.sh"
+
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
@@ -102,3 +106,15 @@ alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 
 #Google
 alias google='firefox --search '
+
+
+earmic()
+{
+        if [ "$1" = "off" ]; then
+                    profile="a2dp_sink"
+                        else
+                                    profile="headset-head-unit"
+                                        fi
+
+                                            pactl set-card-profile card-name $profile
+}
