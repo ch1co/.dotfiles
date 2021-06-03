@@ -52,14 +52,14 @@ set                     $secondMonitor       DVI-I-1
 
 
 # Assign the side of each screen
-exec --no-startup-id xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --right-of $secondMonitor 
+exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --right-of $secondMonitor 
 
-workspace 1         output               $secondMonitor
-workspace 2         output               $secondMonitor
-workspace 3         output               $secondMonitor
-workspace 4         output               $firstMonitor
-workspace 5         output               $firstMonitor
-workspace 6         output               $firstMonitor
+workspace 1             output               $secondMonitor
+workspace 2             output               $secondMonitor
+workspace 3             output               $secondMonitor
+workspace 4             output               $firstMonitor
+workspace 5             output               $firstMonitor
+workspace 6             output               $firstMonitor
 
 # switch to workspace
 bindsym                 $mod+1               workspace 1
@@ -70,21 +70,19 @@ bindsym                 $mod+5               workspace 5
 bindsym                 $mod+6               workspace 6
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-bindsym $mod+Shift+2 move container to workspace 2; workspace 2
-bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-#bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-#bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-#bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-#bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+bindsym                 $mod+Shift+1         move container to workspace 1; workspace 1
+bindsym                 $mod+Shift+2         move container to workspace 2; workspace 2
+bindsym                 $mod+Shift+3         move container to workspace 3; workspace 3
+bindsym                 $mod+Shift+4         move container to workspace 4; workspace 4
+bindsym                 $mod+Shift+5         move container to workspace 5; workspace 5
+bindsym                 $mod+Shift+6         move container to workspace 6; workspace 6
+#bindsym                $mod+Shift+7         move container to workspace 7; workspace 7
+#bindsym                $mod+Shift+8         move container to workspace 8; workspace 8
+#bindsym                $mod+Shift+9         move container to workspace 9; workspace 9
+#bindsym                $mod+Shift+0         move container to workspace 10; workspace 10
 
-#Backup exit
 #Press ctrl+alt+x - check toolbar for next choices
 bindsym                 control+mod1+X      mode "$mode_system"
-
 
 # ArcoLinux Logout
 bindsym                 $mod+X              exec --no-startup-id arcolinux-logout
@@ -181,15 +179,13 @@ font pango:             Noto Mono Regular 13
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
-
+# Chromium
+exec                    --no-startup-id         chromium
 # Timeshift
 exec                    --no-startup-id         timeshift &
 
 # qBitTorrent
 exec                    --no-startup-id         qBitTorrent 
-
-# Xcompmgr
-exec                    --no-startup-id         xcompmgr -c &
 
 # Eclipse
 exec                    --no-startup-id         /home/ch1co/Documents/scripts/eclipse.sh
@@ -357,14 +353,16 @@ for_window              [instance="dropdown"]                    floating disabl
 #################                          give focus to applications                               #################
 #####################################################################################################################
                         
+# switch to workspace with urgent window automatically
+for_window              [urgent=latest]                          focus
+
+# Disable automatic focus when mouse hovering
+focus_follows_mouse     no
+
 # Automatic focus on new window 
 for_window              [class=".*"]                             focus
 for_window              [class=="qBitTorrent"]                   no_focus
 for_window              [class=="Zoom"]                          no_focus
-# switch to workspace with urgent window automatically
-for_window              [urgent=latest]                          focus
-# Disable automatic focus when mouse hovering
-focus_follows_mouse     no
 
 #####################################################################################################################
 #################                          audio settings                                           #################
