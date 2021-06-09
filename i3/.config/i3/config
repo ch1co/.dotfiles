@@ -185,7 +185,7 @@ exec                    --no-startup-id         chromium
 exec                    --no-startup-id         timeshift &
 
 # qBitTorrent
-exec                    --no-startup-id         qBitTorrent 
+exec                    --no-startup-id         qbitTorrent 
 
 # Eclipse
 exec                    --no-startup-id         /home/ch1co/Documents/scripts/eclipse.sh

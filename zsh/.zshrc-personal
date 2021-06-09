@@ -107,7 +107,25 @@ alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 #Google
 alias google='firefox --search '
 
+ alias cd..='cd ..'
+ alias pdw="pwd"
+ alias udpate='sudo pacman -Syyu'
+ alias upate='sudo pacman -Syyu'
+ alias updte='sudo pacman -Syyu'
+ alias updqte='sudo pacman -Syyu'
+ alias upqll="yay -Syu --noconfirm"
+ alias upal="yay -Syu --noconfirm"
 
+alias skel='cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~'
+#backup contents of /etc/skel to hidden backup folder in home/user
+alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
+#
+ #Recent Installed Packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+ 
+ #iso and version used to install ArcoLinux
+ alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 earmic()
 {
         if [ "$1" = "off" ]; then
