@@ -191,7 +191,7 @@ exec                    --no-startup-id         qbitTorrent
 exec                    --no-startup-id         /home/ch1co/Documents/scripts/eclipse.sh
 
 # Alacritty
-exec                    --no-startup-id         alacritty
+# exec                    --no-startup-id         alacritty
 
 # Autotiling
 exec_always             --no-startup-id         autotiling
