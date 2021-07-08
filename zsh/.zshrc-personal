@@ -34,7 +34,7 @@ alias cat='less'
 
 # Replace htop with bpytop (installation required)
 # https://pypi.org/project/bpytop/
-alias htop='bpytop'
+#alias htop='bpytop'
 
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'

@@ -311,6 +311,7 @@ bindsym                 Control+Shift+Print     exec --no-startup-id gnome-scree
 
 #floating enabled from some programs - find with xprop
 #                               window name                                state     
+for_window              [class="jetbrains-studio"]               floating enable
 for_window              [class="Arcolinux-welcome-app.py"]       floating enable
 for_window              [class="Arcolinux-calamares-tool.py"]    floating enable
 for_window              [class="Bleachbit"]                      floating disable
