@@ -60,6 +60,10 @@ workspace 3             output               $secondMonitor
 workspace 4             output               $firstMonitor
 workspace 5             output               $firstMonitor
 workspace 6             output               $firstMonitor
+workspace 7             output               $firstMonitor
+workspace 8             output               $firstMonitor 
+workspace 9             output               $firstMonitor
+workspace 10            output               $firstMonitor
 
 # switch to workspace
 bindsym                 $mod+1               workspace 1
@@ -68,18 +72,21 @@ bindsym                 $mod+3               workspace 3
 bindsym                 $mod+4               workspace 4
 bindsym                 $mod+5               workspace 5
 bindsym                 $mod+6               workspace 6
-
+bindsym                 $mod+6               workspace 7
+bindsym                 $mod+6               workspace 8
+bindsym                 $mod+6               workspace 9
+bindsym                 $mod+6               workspace 10
 # move focused container to workspace
-bindsym                 $mod+Shift+1         move container to workspace 1; workspace 1
-bindsym                 $mod+Shift+2         move container to workspace 2; workspace 2
-bindsym                 $mod+Shift+3         move container to workspace 3; workspace 3
-bindsym                 $mod+Shift+4         move container to workspace 4; workspace 4
-bindsym                 $mod+Shift+5         move container to workspace 5; workspace 5
-bindsym                 $mod+Shift+6         move container to workspace 6; workspace 6
-#bindsym                $mod+Shift+7         move container to workspace 7; workspace 7
-#bindsym                $mod+Shift+8         move container to workspace 8; workspace 8
-#bindsym                $mod+Shift+9         move container to workspace 9; workspace 9
-#bindsym                $mod+Shift+0         move container to workspace 10; workspace 10
+bindsym                $mod+Shift+1         move container to workspace 1; workspace 1
+bindsym                $mod+Shift+2         move container to workspace 2; workspace 2
+bindsym                $mod+Shift+3         move container to workspace 3; workspace 3
+bindsym                $mod+Shift+4         move container to workspace 4; workspace 4
+bindsym                $mod+Shift+5         move container to workspace 5; workspace 5
+bindsym                $mod+Shift+6         move container to workspace 6; workspace 6
+bindsym                $mod+Shift+7         move container to workspace 7; workspace 7
+bindsym                $mod+Shift+8         move container to workspace 8; workspace 8
+bindsym                $mod+Shift+9         move container to workspace 9; workspace 9
+bindsym                $mod+Shift+0         move container to workspace 10; workspace 10
 
 #Press ctrl+alt+x - check toolbar for next choices
 bindsym                 control+mod1+X      mode "$mode_system"
@@ -565,5 +572,3 @@ client.background       #F8F8F2
     # back to normal: Enter or Escape
 #    bindsym             Return              mode "default"
 #    bindsym             Escape              mode "default"
-#}
-
