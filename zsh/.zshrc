@@ -7,7 +7,12 @@ fortune | cowsay
 export ZSH="/home/ch1co/.oh-my-zsh"
 export VISUAL=vim
 export EDITOR="$VISUAL"
-# Set name of the theme to load --- if set to "random", it will
+
+ 
+
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
