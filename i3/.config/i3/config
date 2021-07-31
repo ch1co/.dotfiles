@@ -188,17 +188,9 @@ font pango:             Noto Mono Regular 13
 #####################################################################################################################
 # Chromium
 exec                    --no-startup-id         chromium
-# Timeshift
-exec                    --no-startup-id         timeshift &
 
 # qBitTorrent
-exec                    --no-startup-id         qbitTorrent 
-
-# Eclipse
-exec                    --no-startup-id         /home/ch1co/Documents/scripts/eclipse.sh
-
-# Alacritty
-# exec                    --no-startup-id         alacritty
+exec                    --no-startup-id         qBittorrent 
 
 # Autotiling
 exec_always             --no-startup-id         autotiling
@@ -206,7 +198,6 @@ exec                    --no-startup-id         nitrogen --restore &
 
 # ArcoLinux Welcome App
 # exec                  --no-startup-id         dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
-
 
 #####################################################################################################################
 #################                          assign applications to workspaces                       ################## 
@@ -278,11 +269,6 @@ bindsym                 $mod+q                  kill
 # Change Keyboard layout
 bindsym                 $mod+space              exec /home/ch1co/.config/i3/i3status//i3-keyboard-layout.sh cycle us il
 
-# Conky
-bindsym                 $mod+c                  exec --no-startup-id conky-toggle
-bindsym                 control+Mod1+Next       exec --no-startup-id conky-rotate -n
-bindsym                 control+Mod1+Prior      exec --no-startup-id conky-rotate -p
-
 # Terminal
 bindsym                 $mod+Return             exec --no-startup-id alacritty;focus
 
@@ -345,7 +331,7 @@ for_window              [class="Xfburn"]                         floating disabl
 for_window              [class="Xfce4-appfinder"]                floating enable
 for_window              [class="Xfce4-settings-manager"]         floating disable
 for_window              [class="Xfce4-taskmanager"]              floating enable
-for_window              [class="Discord"]                        floating disable
+for_window              [class="Discord"]                        floating enable 
 for_window              [instance="variety"]                     floating disable
 for_window              [title="Copying"]                        floating enable
 for_window              [title="Deleting"]                       floating enable
