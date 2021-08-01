@@ -7,7 +7,7 @@ fortune | cowsay
 export ZSH="/home/ch1co/.oh-my-zsh"
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
+export VIMINIT="source ~/.vim/.vimrc"
  
 
 
