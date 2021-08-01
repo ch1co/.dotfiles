@@ -65,7 +65,14 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
+" Wipe registry when launching vim
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * WipeReg
+
+" Show hidden files 
+let NERDTreeShowHidden=1
+
 
