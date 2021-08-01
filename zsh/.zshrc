@@ -8,8 +8,7 @@ export ZSH="/home/ch1co/.oh-my-zsh"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export VIMINIT="source ~/.vim/.vimrc"
- 
-
+export TERM=xterm-256color
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
