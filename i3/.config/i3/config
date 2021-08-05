@@ -188,7 +188,7 @@ font pango:             Noto Mono Regular 13
 #####################################################################################################################
 
 # qBitTorrent
-exec                    --no-startup-id         qbittorrent 
+exec                    --no-startup-id i3-msg  'exec qbittorrent ; workspace 4'
 
 # Autotiling
 exec_always             --no-startup-id         autotiling
@@ -198,7 +198,7 @@ exec                    --no-startup-id         nitrogen --restore &
 exec                    --no-startup-id i3-msg  'exec alacritty -t htop -e htop'
 
 # Chromium
-exec                    --no-startup-id i3-msg  'workspace 4; exec chromium'
+exec                    --no-startup-id i3-msg  'exec chromium'
 
 # ArcoLinux Welcome App
 # exec                  --no-startup-id         dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
@@ -209,18 +209,17 @@ exec                    --no-startup-id i3-msg  'workspace 4; exec chromium'
 #####################################################################################################################
 
 # Workspace 1
-for_window              [class="qBittorrent"]   move to workspace 1
+for_window              [class="qBittorrent"]               move to workspace 1
 
 # Workspace 2 
 
-# assign                  [class="Alacritty" title="htop"] 2
-#exec                    --no-startup-id         exec alacritty -e htop
-for_window              [class="Alacritty" title="htop"] move to workspace 2
+for_window              [class="Alacritty" title="htop"]    move to workspace 2
 # Workspace 3                                        
-for_window              [class="discord"]       move to workspace 3
-
+for_window              [class="discord"]                   move to workspace 3
+# Workspace 4
+for_window              [class="Chromium"]                  move to workspace 4
 #workspace 5 
-for_window              [class="Eclipse"]       move to workspace 5
+for_window              [class="Eclipse"]                   move to workspace 5
 
 # Workspace 6 
 
@@ -409,7 +408,7 @@ gaps outer          10
 #####################################################################################################################
 
 #if you want transparency on non-focused windows, ...
-exec_always         --no-startup-id         picom   --config ~/.config/i3/picom.conf
+exec_always         --no-startup-id         picom   --config ~/.config/picom.conf
 
 bindsym             control+mod1+o          exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 

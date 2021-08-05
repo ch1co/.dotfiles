@@ -78,7 +78,23 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions colored-man-pages)
+plugins=(zsh-vi-mode git zsh-autosuggestions colored-man-pages)
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# zsh-vi-mode 
+bindkey -v
+
+precmd() { RPROMPT="" }
+function zle-line-init zle-keymap-select {
+    RPS1="%{$fg_bold[red]%} ${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%{$reset_color%}"
+    RPS2=$RPS1
+   zle reset-prompt
+}
+
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+export KEYTIMEOUT=1
 
 source $ZSH/oh-my-zsh.sh
 

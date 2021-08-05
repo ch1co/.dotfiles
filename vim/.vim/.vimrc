@@ -1,4 +1,5 @@
 syntax on
+set timeoutlen=150
 set clipboard=unnamed
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -80,5 +81,6 @@ autocmd VimEnter * WipeReg
 autocmd VimEnter * NERDTree | wincmd p
 " Show hidden files 
 let NERDTreeShowHidden=1
+
 
 
