@@ -61,6 +61,12 @@ if !has('gui_running')
   set t_Co=256
 endif
 
+
+let NERDTreeQuitOnOpen = 1
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
@@ -69,9 +75,9 @@ let g:lightline = {
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * NERDTree | call lightline#update()
 autocmd VimEnter * WipeReg
-
+autocmd VimEnter * NERDTree | wincmd p
 " Show hidden files 
 let NERDTreeShowHidden=1
 
