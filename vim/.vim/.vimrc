@@ -83,4 +83,3 @@ autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeShowHidden=1
 
 
-
