@@ -57,7 +57,7 @@ exec                    --no-startup-id      xrandr --output $firstMonitor --pri
 workspace 1             output               $secondMonitor
 workspace 2             output               $secondMonitor
 workspace 3             output               $secondMonitor
-workspace 4             output               $firstMonitor
+workspace 4             output               $secondMonitor
 workspace 5             output               $firstMonitor
 workspace 6             output               $firstMonitor
 workspace 7             output               $firstMonitor
@@ -197,9 +197,6 @@ exec                    --no-startup-id         nitrogen --restore &
 # Htop
 exec                    --no-startup-id i3-msg  'exec alacritty -t htop -e htop'
 
-# Chromium
-exec                    --no-startup-id i3-msg  'exec chromium'
-
 # ArcoLinux Welcome App
 # exec                  --no-startup-id         dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
@@ -217,11 +214,12 @@ for_window              [class="Alacritty" title="htop"]    move to workspace 2
 # Workspace 3                                        
 for_window              [class="discord"]                   move to workspace 3
 # Workspace 4
-for_window              [class="Chromium"]                  move to workspace 4
-#workspace 5 
+
+# Workspace 5 
 for_window              [class="Eclipse"]                   move to workspace 5
 
 # Workspace 6 
+for_window              [class=["Vmware"]                   move to workspace 6
 
 # Workspace 7
 

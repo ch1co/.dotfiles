@@ -96,6 +96,12 @@ zle -N zle-keymap-select
 
 export KEYTIMEOUT=1
 
+if [ -f /etc/bash.command-not-found ]; then
+	. /etc/bash.command-not-found
+fi
+
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

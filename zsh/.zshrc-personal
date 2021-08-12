@@ -3,8 +3,7 @@
 alias zshconfig="vim ~/.dotfiles/zsh/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # discord kill
-alias kkd="killall Discord &&  killall Discord && discord &"
-
+alias kkd="killall Discord &&  killall Discord && nohup discord > /dev/null"
 # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
