@@ -1,5 +1,5 @@
 #!/bin/zsh
-
+alias :q="exit"
 alias zshconfig="vim ~/.dotfiles/zsh/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # discord kill
