@@ -4,7 +4,7 @@ fortune | cowsay
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ch1co/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export VIMINIT="source ~/.vim/.vimrc"
