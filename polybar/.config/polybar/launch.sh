@@ -19,8 +19,8 @@ SECONDARY_BAR_NAME=mainbar-i3-extra
 BAR_CONFIG=/home/$USER/.config/polybar/config.ini
 
 
-PRIMARY=$(xrandr --query | grep " connected" | grep "primary" | cut -d" " -f1)
-OTHERS=$(xrandr --query | grep " connected" | grep -v "primary" | cut -d" " -f1)
+OTHERS=$(xrandr --query | grep " connected" | grep "primary" | cut -d" " -f1)
+PRIMARY=$(xrandr --query | grep " connected" | grep -v "primary" | cut -d" " -f1)
 
 # Launch on primary monitor
 MONITOR=$PRIMARY polybar --reload -c $BAR_CONFIG $PRIMARY_BAR_NAME &

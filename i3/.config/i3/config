@@ -52,18 +52,19 @@ set                     $secondMonitor       DVI-I-1
 
 
 # Assign the side of each screen
-exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --right-of $secondMonitor 
+exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --left-of $secondMonitor 
+# exec_always             --no-startup-id      xrandr --output DP-0 --rotate left
 
-workspace 1             output               $secondMonitor
-workspace 2             output               $secondMonitor
-workspace 3             output               $secondMonitor
-workspace 4             output               $secondMonitor
-workspace 5             output               $firstMonitor
-workspace 6             output               $firstMonitor
-workspace 7             output               $firstMonitor
-workspace 8             output               $firstMonitor 
-workspace 9             output               $firstMonitor
-workspace 10            output               $firstMonitor
+workspace 1             output               $firstMonitor
+workspace 2             output               $firstMonitor
+workspace 3             output               $firstMonitor
+workspace 4             output               $firstMonitor
+workspace 5             output               $secondMonitor
+workspace 6             output               $secondMonitor
+workspace 7             output               $secondMonitor
+workspace 8             output               $secondMonitor
+workspace 9             output               $secondMonitor
+workspace 10            output               $secondMonitor
 
 # switch to workspace
 bindsym                 $mod+1               workspace 1
@@ -188,7 +189,7 @@ font pango:             Noto Mono Regular 13
 #####################################################################################################################
 
 # qBitTorrent
-exec                    --no-startup-id i3-msg  'exec qbittorrent ; workspace 4'
+exec                    --no-startup-id i3-msg  'exec qbittorrent'
 
 # Autotiling
 exec_always             --no-startup-id         autotiling
@@ -310,6 +311,8 @@ bindsym                 Control+Shift+Print     exec --no-startup-id gnome-scree
 
 #floating enabled from some programs - find with xprop
 #                               window name                                state     
+
+for_window              [class="idea"]                           floating enable
 for_window              [class="jetbrains-studio"]               floating enable
 for_window              [class="Arcolinux-welcome-app.py"]       floating enable
 for_window              [class="Arcolinux-calamares-tool.py"]    floating enable
@@ -396,7 +399,7 @@ popup_during_fullscreen smart
 #####################################################################################################################
 
 for_window          [class="^.*"]           border pixel 2
-gaps inner          20
+gaps inner          10
 gaps outer          10
 #smart_gaps         on
 #smart_borders      on
@@ -407,7 +410,6 @@ gaps outer          10
 
 #if you want transparency on non-focused windows, ...
 exec_always         --no-startup-id         picom   --config ~/.config/picom.conf
-
 bindsym             control+mod1+o          exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 #####################################################################################################################
