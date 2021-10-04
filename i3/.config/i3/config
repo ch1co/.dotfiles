@@ -53,7 +53,7 @@ set                     $secondMonitor       DVI-I-1
 
 # Assign the side of each screen
 exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --left-of $secondMonitor 
-# exec_always             --no-startup-id      xrandr --output DP-0 --rotate left
+
 
 workspace 1             output               $firstMonitor
 workspace 2             output               $firstMonitor
