@@ -8,6 +8,7 @@ set expandtab
 set smartindent
 set nu
 set relativenumber
+set wrap
 set nohlsearch
 set hidden
 set scrolloff=8
@@ -18,7 +19,7 @@ set undofile
 set incsearch
 set guicursor=
 set noshowmode
-
+set tw=80
 let mapleader= ","
 
 nnoremap <leader>n :NERDTreeFocus<CR>

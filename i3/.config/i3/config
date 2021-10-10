@@ -52,14 +52,14 @@ set                     $secondMonitor       DVI-I-1
 
 
 # Assign the side of each screen
-exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --left-of $secondMonitor 
-
+# exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --left-of $secondMonitor 
+exec                  --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --primary --mode 1920x1080 --pos 1440x0 --rotate normal --output HDMI-0 --off --output DP-0 --mode 2560x1440 --pos 0x0 --rotate left --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
 
 workspace 1             output               $firstMonitor
 workspace 2             output               $firstMonitor
 workspace 3             output               $firstMonitor
 workspace 4             output               $firstMonitor
-workspace 5             output               $secondMonitor
+workspace 5             output               $firstMonitor
 workspace 6             output               $secondMonitor
 workspace 7             output               $secondMonitor
 workspace 8             output               $secondMonitor
@@ -190,10 +190,11 @@ font pango:             Noto Mono Regular 13
 
 # qBitTorrent
 exec                    --no-startup-id i3-msg  'exec qbittorrent'
-
+# BitWarden
+exec                    --no-startup-id i3-msg  'exec bitwarden'
 # Autotiling
 exec_always             --no-startup-id         autotiling
-exec                    --no-startup-id         nitrogen --restore & 
+exec_always             --no-startup-id i3-msg  'exec nitrogen --restore'
 
 # Htop
 exec                    --no-startup-id i3-msg  'exec alacritty -t htop -e htop'
@@ -215,12 +216,12 @@ for_window              [class="Alacritty" title="htop"]    move to workspace 2
 # Workspace 3                                        
 for_window              [class="discord"]                   move to workspace 3
 # Workspace 4
-
+for_window              [class="Bitwarden"]               move to workspace 4
 # Workspace 5 
 for_window              [class="Eclipse"]                   move to workspace 5
 
 # Workspace 6 
-for_window              [class=["Vmware"]                   move to workspace 6
+for_window              [class=["vmware"]                   move to workspace 6
 
 # Workspace 7
 
@@ -292,7 +293,7 @@ bindsym --release       $mod+Escape             exec xkill
 bindsym                 Mod1+Tab                exec --no-startup-id rofi -show run -font "Noto Sans 13"
 
 # Chromium
-bindsym                 $mod+F2                 exec --no-startup-id chromium
+bindsym                 $mod+F2                 exec --no-startup-id brave-browser-nightly
 
 # Ranger
 bindsym                 $mod+F3                 exec --no-startup-id alacritty -e ranger
