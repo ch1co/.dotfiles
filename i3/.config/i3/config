@@ -198,7 +198,9 @@ exec_always             --no-startup-id i3-msg  'exec nitrogen --restore'
 
 # Htop
 exec                    --no-startup-id i3-msg  'exec alacritty -t htop -e htop'
-
+# tmux
+#
+exec                    --no-startup-id i3-msg  'exec alacritty -t tmux -e tmux'
 # ArcoLinux Welcome App
 # exec                  --no-startup-id         dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
@@ -216,10 +218,10 @@ for_window              [class="Alacritty" title="htop"]    move to workspace 2
 # Workspace 3                                        
 for_window              [class="discord"]                   move to workspace 3
 # Workspace 4
-for_window              [class="Bitwarden"]               move to workspace 4
+for_window              [class="Bitwarden"]                 move to workspace 4
 # Workspace 5 
 for_window              [class="Eclipse"]                   move to workspace 5
-
+for_window              [class="Alacritty" title="tmux"]    move to workspace 5
 # Workspace 6 
 for_window              [class=["vmware"]                   move to workspace 6
 
