@@ -53,14 +53,14 @@ set                     $secondMonitor       DVI-I-1
 
 # Assign the side of each screen
 # exec                    --no-startup-id      xrandr --output $firstMonitor --primary --mode 2560x1440 --rate 144 --left-of $secondMonitor 
-exec                  --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --primary --mode 1920x1080 --pos 1440x0 --rotate normal --output HDMI-0 --off --output DP-0 --mode 2560x1440 --pos 0x0 --rotate left --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
+exec                  --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --primary --mode 1920x1080 --rate 120  --pos 1440x0 --rotate normal --output HDMI-0 --off --output DP-0 --mode 2560x1440 --rate 140 --pos 0x0 --rotate left --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
 
 workspace 1             output               $firstMonitor
 workspace 2             output               $firstMonitor
 workspace 3             output               $firstMonitor
 workspace 4             output               $firstMonitor
 workspace 5             output               $firstMonitor
-workspace 6             output               $secondMonitor
+workspace 6             output               $firstMonitor
 workspace 7             output               $secondMonitor
 workspace 8             output               $secondMonitor
 workspace 9             output               $secondMonitor
@@ -200,7 +200,7 @@ exec_always             --no-startup-id i3-msg  'exec nitrogen --restore'
 exec                    --no-startup-id i3-msg  'exec alacritty -t htop -e htop'
 # tmux
 #
-exec                    --no-startup-id i3-msg  'exec alacritty -t tmux -e tmux'
+exec                    --no-startup-id i3-msg  'exec alacritty -t tmux -e tmux; focus'
 # ArcoLinux Welcome App
 # exec                  --no-startup-id         dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
@@ -220,14 +220,14 @@ for_window              [class="discord"]                   move to workspace 3
 for_window              [class="Bitwarden"]                 move to workspace 3
 
 # Workspace 4
-for_window              [class="Brave-browser-nightly"]      move to workspace 4
+for_window              [class="Brave-browser-nightly"]     move to workspace 4
 
 # Workspace 5 
 for_window              [class="Eclipse"]                   move to workspace 5
-for_window              [class="Alacritty" title="tmux"]    move to workspace 5
+for_window              [class="Alacritty" title="tmux"]    move to workspace 5; focus
 
 # Workspace 6 
-for_window              [class=["Vmware"]                   move to workspace 6
+for_window              [class=["Mail"]                     move to workspace 6
 
 # Workspace 7
 
@@ -304,6 +304,9 @@ bindsym                 $mod+F2                 exec --no-startup-id brave-brows
 # Ranger
 bindsym                 $mod+F3                 exec --no-startup-id alacritty -e ranger
 
+# Nautilus
+bindsym                 $mod+F4                 exec --no-startup-id nautilus
+
 #####################################################################################################################
 #################                          screenshots                                              #################
 #####################################################################################################################
@@ -370,9 +373,9 @@ for_window              [urgent=latest]                          focus
 focus_follows_mouse     no
 
 # Automatic focus on new window 
-for_window              [class="^.*"]                             focus
 for_window              [class=="qBitTorrent"]                   no_focus
 for_window              [class=="Zoom"]                          no_focus
+for_window              [class="^.*"]                             focus
 
 #####################################################################################################################
 #################                          audio settings                                           #################
