@@ -284,7 +284,7 @@ bindsym                 $mod+q                  kill
 bindsym                 $mod+space              exec /home/ch1co/.config/i3/i3status//i3-keyboard-layout.sh cycle us il
 
 # Terminal
-bindsym                 $mod+Return             exec --no-startup-id alacritty;focus
+bindsym                 $mod+Return             exec --no-startup-id alacritty -e tmux;focus
 
 # Pavucontrol 
 bindsym                 control+mod1+u          exec --no-startup-id pavucontrol
